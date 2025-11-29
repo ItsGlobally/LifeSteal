@@ -7,8 +7,10 @@ import org.bukkit.inventory.ItemStack;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.data.Items;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.interfaces.Global;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.utils.MessageUtil;
+import top.nontage.nontagelib.annotations.CommandInfo;
 import top.nontage.nontagelib.command.NontageCommand;
 
+@CommandInfo(name = "withdrawhp")
 public class withdrawhp implements Global, NontageCommand {
     @Override
     public void execute(CommandSender commandSender, String s, String[] strings) {
