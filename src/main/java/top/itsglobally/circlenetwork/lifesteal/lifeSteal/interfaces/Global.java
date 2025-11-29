@@ -2,7 +2,7 @@ package top.itsglobally.circlenetwork.lifesteal.lifeSteal.interfaces;
 
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.LifeSteal;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager.ConfigManager;
-import top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager.ManagerRegistry;
+import top.itsglobally.circlenetwork.lifesteal.lifeSteal.utils.ManagerRegistry;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager.PlayerManager;
 
 public interface Global {

@@ -1,4 +1,4 @@
-package top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager;
+package top.itsglobally.circlenetwork.lifesteal.lifeSteal.utils;
 
 import org.reflections.Reflections;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.LifeSteal;

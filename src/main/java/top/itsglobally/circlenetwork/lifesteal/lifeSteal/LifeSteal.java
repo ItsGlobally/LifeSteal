@@ -2,7 +2,8 @@ package top.itsglobally.circlenetwork.lifesteal.lifeSteal;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.interfaces.Manager;
-import top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager.ManagerRegistry;
+import top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager.ConfigManager;
+import top.itsglobally.circlenetwork.lifesteal.lifeSteal.utils.ManagerRegistry;
 import top.nontage.nontagelib.command.NontageCommandLoader;
 import top.nontage.nontagelib.listener.ListenerRegister;
 
@@ -15,12 +16,15 @@ public final class LifeSteal extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         mr = new ManagerRegistry(this);
+        mr.init("top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager");
         NontageCommandLoader.registerAll(this);
         ListenerRegister.registerAll(this);
+        mr.get(ConfigManager.class).getConfig().reload();
     }
 
     @Override
     public void onDisable() {
+        mr.get(ConfigManager.class).getConfig().save();
     }
 
 
