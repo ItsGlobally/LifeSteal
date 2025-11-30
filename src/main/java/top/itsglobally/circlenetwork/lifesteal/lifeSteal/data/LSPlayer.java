@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.interfaces.Global;
+import top.itsglobally.circlenetwork.lifesteal.lifeSteal.utils.MessageUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +56,7 @@ public class LSPlayer implements Global {
         if (obt != null) removeFightsud(target);
         addFighting(target);
         BukkitTask bt = Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            MessageUtil.sendMessage(target.player, "&7You left combat. Feel free to logout.");
             removeFightsud(target);
         }, 20 * 15L);
         fightingsud.put(target, bt);

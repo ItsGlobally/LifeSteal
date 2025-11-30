@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.data.Items;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.interfaces.Global;
@@ -41,7 +42,14 @@ public class PlayerListener implements Listener, Global {
 
         p.setMaxHealth(max - 2);
 
-        e.getDrops().add(Items.HEART);
+        e.getDrops().add(Items.HEART());
+    }
+    @EventHandler
+    public void onChat(AsyncPlayerChatEvent e) {
+        e.setFormat(MessageUtil.formatMessage("&r " +
+                        pm.getPrefixedName(e.getPlayer()) +
+                        "&r » %2$s"
+        ));
     }
 
 

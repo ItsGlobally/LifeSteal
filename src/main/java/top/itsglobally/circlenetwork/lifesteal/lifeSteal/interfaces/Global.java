@@ -1,5 +1,6 @@
 package top.itsglobally.circlenetwork.lifesteal.lifeSteal.interfaces;
 
+import net.luckperms.api.LuckPerms;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.LifeSteal;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager.ConfigManager;
 import top.itsglobally.circlenetwork.lifesteal.lifeSteal.utils.ManagerRegistry;
@@ -11,4 +12,5 @@ public interface Global {
     ConfigManager cm = mr.get(ConfigManager.class);
     ConfigManager.Config cfg = cm.getConfig();
     PlayerManager pm = mr.get(PlayerManager.class);
+    LuckPerms luckperms = plugin.getLuckPerms();
 }

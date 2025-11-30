@@ -2,3 +2,4 @@ name: LifeSteal
 version: '1.0-SNAPSHOT'
 main: top.itsglobally.circlenetwork.lifesteal.lifeSteal.LifeSteal
 api-version: '1.21'
+depend: ["NontageLib", "LuckPerms"]

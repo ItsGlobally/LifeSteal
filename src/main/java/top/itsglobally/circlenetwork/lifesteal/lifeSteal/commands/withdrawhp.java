@@ -41,7 +41,7 @@ public class withdrawhp implements Global, NontageCommand {
         }
 
         p.setMaxHealth(p.getMaxHealth() - withdrawHPs);
-        ItemStack is = Items.HEART.clone();
+        ItemStack is = Items.HEART().clone();
         is.setAmount(withdrawHPs / 2);
         inv.addItem(is);
 

@@ -1,5 +1,6 @@
 package top.itsglobally.circlenetwork.lifesteal.lifeSteal.manager;
 
+import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.damage.DamageSource;
 import org.bukkit.entity.Player;
@@ -35,5 +36,30 @@ public class PlayerManager implements Manager, Global {
     }
     public LSPlayer getLifeStealPlayer(@NotNull Player p) {
         return getLifeStealPlayer(p.getUniqueId());
+    }
+    public void removePlayer(Player p) {
+        removePlayer(p.getUniqueId());
+    }
+    public void removePlayer(UUID uuid) {
+        players.remove(uuid);
+    }
+    public String getPrefix(Player p) {
+        User user = luckperms.getUserManager().getUser(p.getUniqueId());
+        if (user == null) return "";
+        String prefix = user.getCachedData().getMetaData().getPrefix();
+        return prefix != null ? prefix : "";
+    }
+
+    public String getPrefixColor(Player p) {
+        User user = luckperms.getUserManager().getUser(p.getUniqueId());
+        if (user == null) return "&f";
+        String prefixColor = user.getCachedData().getMetaData().getMetaValue("prefixcolor");
+        if (prefixColor != null) return prefixColor;
+        String prefix = getPrefix(p);
+        return prefix.length() >= 2 ? prefix.substring(0, 2) : "&f";
+    }
+
+    public String getPrefixedName(Player p) {
+        return getPrefix(p) + p.getName();
     }
 }
